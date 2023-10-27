@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->foreignId(column: 'brand_id')
                 ->constrained(table: 'brands')
@@ -19,13 +19,14 @@ return new class extends Migration
             $table->string(column: 'name');
             $table->string(column: 'slug')->unique();
             $table->string(column: 'sku')->unique();
+            $table->string(column: 'image');
             $table->longText(column: 'description')->nullable();
-            $table->unsignedBigInteger(column: 'quantity');
+            $table->unsignedBigInteger('quantity');
             $table->decimal(column: 'price', total:10, places: 2);
             $table->boolean(column: 'is_visible')->default(value:false);
             $table->boolean(column: 'is_featured')->default(value:false);
-            $table->enum(column: 'type', ['deliverable', 'downloadable'])
-                ->default(`type', 'deliverable');
+            $table->enum('type', ['deliverable', 'downloadable'])
+            ->default('deliverable');
             $table->date(column: 'publised_at');
             $table->timestamps();
         });
@@ -36,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('product');
     }
 };

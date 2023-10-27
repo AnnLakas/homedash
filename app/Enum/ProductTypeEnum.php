@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Enums;
+namespace App\Enum;
 
-enum ProductTypeEnums : string {
+enum ProductTypeEnum : string {
     case DELIVERABLE = 'deliverable';
 
     case DOWNLOADBLE = 'downloadble';

@@ -1,7 +1,8 @@
 <img
-    src="{{asset('images/logow.png')}}"
-    alt="ifitech logo"
+    src="{{asset('images/logooo.png')}}"
+    alt="logo"
 
     {{-- image height --}}
-    class="h-20"  
+    class="h-18"  
+    
  />
